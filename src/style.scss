@@ -1,0 +1,145 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:r,b,i,bi); 
+@import url(http://fonts.googleapis.com/css?family=PT+Mono); 
+
+@import "bootstrap/scss/functions";
+$font-family-sans-serif:     "PT Sans", system-ui, -apple-system, "Segoe UI", "Liberation Sans", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Twemoji Mozilla", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-monospace:      "PT Mono", 'Liberation Mono', 'Courier New', Consolas, Menlo, 'DejaVu Sans Mono', monospace;
+@import "bootstrap/scss/bootstrap";
+
+
+#app {
+  background-color: $blue-100;
+}
+
+.fantune-card {
+  @extend .card;
+  @extend .shadow;
+  @extend .mx-1;
+  @extend .my-2;
+  border: none;
+  &-header {
+    @extend .card-header;
+    @extend .px-2;
+    @extend .py-1;
+  }
+  &-header-normal {
+    @extend .fantune-card-header;
+    @extend .text-white;
+    background-color: $gray-800;
+  }
+  &-header-edit {
+    @extend .fantune-card-header;
+    @extend .text-dark;
+    @extend .bg-warning;
+  }
+}
+
+
+/* 
+Анимации появлений, скрытий, переходов */
+
+%default-transition {
+	transition: all 0.2s ease;
+  }
+  
+  %fade {
+	opacity: 0;
+  }
+  
+  %scale {
+	transform: scale(0.1);
+  }
+  
+  %slide {
+	transform: translateY(-100%);
+	&-invert {
+	  transform: translateY(+100%);
+	}
+  }
+  
+  @mixin default-transition {
+	&-enter,
+	&-leave,
+	&-invert-enter,
+	&-invert-leave {
+	  &-active {
+		@extend %default-transition;
+	  }
+	}
+  }
+  
+  @mixin fade {
+	@include default-transition;
+	&-enter-from,
+	&-leave-to,
+	&-invert-enter-from,
+	&-invert-leave-to {
+	  @extend %fade;
+	}
+  }
+  
+  @mixin scale {
+	@include default-transition;
+	&-enter-from,
+	&-leave-to,
+	&-invert-enter-from,
+	&-invert-leave-to {
+	  @extend %scale;
+	}
+  }
+  
+  @mixin slide {
+	@include default-transition;
+	&-enter-from,
+	&-leave-to {
+	  @extend %slide;
+	}
+	&-invert-enter-from,
+	&-invert-leave-to {
+	  @extend %slide-invert;
+	}
+  }
+  
+  .fade {
+	@include fade;
+	&-scale {
+	  @include fade;
+	  @include scale;
+	}
+  }
+  
+  .slide {
+	@include slide;
+	&-fade {
+	  @include fade;
+	  @include slide;
+	}
+  }
+  
+  .flip-list {
+	&-item {
+	  @extend %default-transition;
+	}
+	&-enter-from,
+	&-leave-to {
+	  @extend %fade;
+	  @extend %scale;
+	}
+  }
+  
+  /* .flip-list-leave-active {
+	position: absolute;
+  } */
+  
+  
+
+
+
+
+
+
+
+
+
+
+
