@@ -6,6 +6,4 @@ import PageCard from './components/PageCard.vue'
 
 import FanQuery from './models/fanQuery.js'
 
-import style from './style.scss'
-
-export { FanTune, PhysInput, PhysOutput, FanQuery, Header, PageCard, style }
+export { FanTune, PhysInput, PhysOutput, FanQuery, Header, PageCard, }
