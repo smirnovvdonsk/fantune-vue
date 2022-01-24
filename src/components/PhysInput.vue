@@ -115,7 +115,7 @@ export default {
     loadCookie() {
       if (this.cookieIsExist) {
         let text = localStorage.getItem(this.cookie);
-        this.text = text;
+        if (text !== null) this.text = text;
       }
       this._oldText = this.text;
     },
